@@ -54,7 +54,7 @@ class Cell(object):
 			return False
 
 	def isRevealed(coord):
-		if coordState == 99:	
+		if coordState == 99:
 			return True
 		else:
 			return False
@@ -67,21 +67,21 @@ class Cell(object):
 		mineIncrement = 0
 
 		if Xpos == 0 and Ypos == 0: #Top Left
-			for x in [0, 1]: 
-				for y in [0, 1]:	# 00 01 10 11
-					newCoord = [Xpos + x, Ypos + y]
+			for x in [ 0 , 1 ]: 
+				for y in [ 0 , 1 ]:	# 00 01 10 11
+					newCoord = [ Xpos + x, Ypos + y ]
 					
 					if isMine(newCoord) == True:
 						mineIncrement += 1
 					else:
 						mineIncrement += 0
 				return mineIncrement     #Finished
-		
+
 
 		if Xpos == 0 and Ypos == rows: #Bottom Left
-			for x in [0, 1]:
-				for y in [-1, 0]:   # 0-1 00 1-1 10
-					newCoord = [Xpos + x, Ypos + y]
+			for x in [ 0 , 1 ]:
+				for y in [ -1 , 0 ]:   # 0-1 00 1-1 10
+					newCoord = [ Xpos + x, Ypos + y ]
 
 					if isMine(newCoord) = True:
 						mineIncrement += 1
@@ -91,9 +91,9 @@ class Cell(object):
 
 
 		if Xpos == columns and Ypos == 0: #Top Right
-			for x in [-1, 0]:
-				for y in [0, 1]:
-					newCoord = [Xpos + x, Ypos + y]
+			for x in [ -1 , 0 ]:
+				for y in [ 0 , 1 ]:
+					newCoord = [ Xpos + x, Ypos + y ]
 
 					if isMine(newCoord) = true:
 						mineIncrement += 1
@@ -103,23 +103,66 @@ class Cell(object):
 
 
 		if Xpos == columns and Ypos == rows: #Bottom Right
-			for x in [-1, 0]:
-				for y in [-1, 0]:
-					newCoord = [Xpos + x, Ypos + y]
+			for x in [ -1 , 0 ]:
+				for y in [ -1 , 0 ]:
+					newCoord = [ Xpos + x, Ypos + y ]
 
-					if isMine(newCoord) = true:
+					if isMine( newCoord ) = true:
 						mineIncrement += 1
 					else:
 						mineIncrement += 0
 
 
-		if 
+		elif Xpos == 0 and (Ypos != 0 and Ypos != rows):
+			for x in [ 0 , 1 ]:
+				for y in [ -1 , 0 , 1 ]:
+					newCoord = [ Xpos + x, Ypos + y ]
+
+					if isMine( newCoord ) = true:
+						mineIncrement += 1
+					else:
+						mineIncrement += 0
+
+
+		if Xpos == columns and (Ypos != 0 and Ypos != rows):
+			for x in [ -1 , 0 ]:
+				for y in [ -1 , 0 , 1 ]:
+					newCoord = [ Xpos + x, Ypos + y ]
+
+					if isMine( newCoord ) = true:
+						mineIncrement += 1
+					else:
+						mineIncrement += 0
+
+
+		if (Xpos != 0 and Xpos != columns) and Ypos = 0:
+				for x in [ -1 , 0 , 1 ]:
+					for y in [ 0 , 1 ]:
+						newCoord = [ Xpos + x, Ypos + y ]
+
+					if isMine( newCoord ) = true:
+						mineIncrement += 1
+					else:
+						mineIncrement += 0
+
+
+		if (Xpos != 0 and Xpos != columns) and Ypos = rows:
+			for x in [ -1 , 0 , 1 ]:
+				for y in [ -1 , 0 ]:
+					newCoord = [ Xpos + x, Ypos + y ]
+
+					if isMine( newCoord ) = true:
+						mineIncrement += 1
+					else:
+						mineIncrement += 0
+
 
 		else:
 			for x in [-1, 0, 1]:
 				for y in [-1, 0, 1]:
-					if isMine(newCoord) == true
-
+					if isMine(newCoord) == true:
+					
+	
 
 '''
 So far we have... 
