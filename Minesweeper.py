@@ -30,7 +30,7 @@ def initialize():
 		for mine in range(numberOfMines):           #first few cells are filled with mines
 			veryLongList[mine] = 1
 
-		fieldArray = np.asarray(lengthOfRandomList) 
+		fieldArray = np.asarray(lengthOfRandomList)
 		r.shuffle(fieldArray)
 		np.reshape(fieldArray, (rows, columns))
 
@@ -160,8 +160,13 @@ class Cell(object):
 		else:
 			for x in [-1, 0, 1]:
 				for y in [-1, 0, 1]:
+					newCoord = [ Xpos + x, Ypos + y ]
+
 					if isMine(newCoord) == true:
-					
+						mineIncrement += 1
+					else:
+						mineIncrement += 0
+						
 	
 
 '''
@@ -177,7 +182,7 @@ that we will need to use
 
 class MineField(object):
 
-	def __init__(self, isSolved, isDead):
+	def __init__(self , isSolved , isDead , Xloc , Yloc , minesLeft):
 		self.isSolved = isSolved
 		self.isDead = isDead
 		self.x = Xloc
@@ -192,7 +197,7 @@ class MineField(object):
 			returrn False
 
 	def isSolved(fieldState):
-		for cells in 
+		for 
 
 
 
@@ -204,16 +209,3 @@ def Main():
 
 		#set color
 		background = py.Surface(screen.get_size())
-		
-			
-
-
-
-
-
-
-	
-
-
-
-
